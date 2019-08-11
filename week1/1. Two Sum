@@ -1,0 +1,16 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        sorted_nums = nums.copy()
+        sorted_nums.sort()
+        result = []
+        a = 0
+        b = len(sorted_nums)-1
+        while sorted_nums[a] + sorted_nums[b] != target:
+            if sorted_nums[a] + sorted_nums[b] > target:
+                b = b - 1
+            else:
+                a = a + 1
+        for i in range (len(nums)):
+            if nums[i] == sorted_nums[a] or nums[i] == sorted_nums[b]:
+                result.append(i)
+        return result
