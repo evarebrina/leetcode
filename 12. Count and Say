@@ -1,0 +1,15 @@
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        prev = '1'
+        cur = ''
+        for j in range(1, n):
+            counter = 1
+            for i in range(len(prev)):
+                if i + 1 < len(prev) and prev[i] == prev[i+1]:
+                    counter += 1
+                else:
+                    cur = cur + str(counter) + prev[i]
+                    counter = 1
+            prev = cur
+            cur = ''
+        return prev
