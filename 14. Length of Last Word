@@ -1,0 +1,14 @@
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        if not s:
+            return 0
+        last_space_index = -1
+        for i in range(len(s)):
+            if s[i] == ' ' and i + 1 < len(s) and s[i+1] != ' ':
+                last_space_index = i
+        counter = 0
+        for i in range(last_space_index+1, len(s)):
+            if s[i] != ' ':
+                counter += 1
+            else: break
+        return counter
